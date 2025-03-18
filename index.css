@@ -10,6 +10,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    margin-bottom: 40px;
 }
 
 h1{
@@ -17,7 +18,7 @@ h1{
     font-size: 3rem;
 }
 
-p{
+.header-container p{
     margin: 20px 0;
     font-size: 2rem;
 }
@@ -25,4 +26,42 @@ p{
 .header-container{
     padding: 50px;
     color: white;
+}
+
+.menu-item{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+.menu-item-inner{
+    display: flex;
+}
+
+.menu-item .menu-img{
+    font-size: 80px;
+    line-height: 0;
+    display: inline-block;
+}
+
+.menu-item p{
+    font-size: 1.5rem;
+    color: #8B8B8B;
+}
+
+.menu-details{
+    margin-left: 30px;
+}
+
+.add-to-cart-btn{
+    display: block;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    border: 2px solid #DEDEDE;
+    border-radius: 50px;
+    background-color: #fff;
 }
