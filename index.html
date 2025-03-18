@@ -14,23 +14,41 @@
     <header>
         <div class="header-container">
             <h1>AMOB's Resturant</h1>
-            <p>The best burgers and pizzas in town</p>
+            <p class="bold-text">The best burgers and pizzas in town</p>
         </div>
     </header>
 
     <main>
-        <section class="menu-item">
-            <div class="menu-item-inner">
+        <section class="menu-item outer">
+            <div class="inner">
                 <p class="menu-img">🍕</p>
                 <div class="menu-details" id="menu-details">
-                    <h2>Pizza</h2>
-                    <p>pepperoni, mushroom, mozarella</p>
-                    <h3>$14</h3>
+                    <h2 class="bold-text">Pizza</h2>
+                    <p class="flavour">pepperoni, mushroom, mozarella</p>
+                    <p class="price-text">$14</p>
                 </div>
             </div>
             <button class="add-to-cart-btn">+</button>
         </section>
     </main>
+
+    <section class="cart">
+        <h2 class="bold-text">Your order</h2>
+        <div class="cart-items">
+            <div class="cart-item outer">
+                <div class="inner">
+                    <p class="bold-text">Pizza</p>
+                    <button class="remove-btn">remove</button>
+                </div>
+                <p class="price-text">$14</p>
+            </div>
+        </div>
+        <div class="outer">
+            <p class="bold-text">Total price:</p>
+            <p class="price-text">$14</p>
+        </div>
+        <button class="order-btn">Complete order</button>
+    </section>
 
     <script type="module" src="/index.js"></script>
 </body>
