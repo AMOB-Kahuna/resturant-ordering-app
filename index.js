@@ -4,8 +4,9 @@ const menuContianer = document.querySelector("#menus-container")
 const cartItems = document.querySelector("#cart-items")
 const totalPrice = document.querySelector("#total-price")
 const cart = document.querySelector("#cart")
-// const orderBtn = document.querySelector("#order-btn")
 const paymentModal = document.querySelector("#payment-modal")
+const paymentForm = document.querySelector("#payment-form")
+const message = document.querySelector("#message")
 
 let totalCartPrice = 0
 
@@ -15,8 +16,20 @@ document.addEventListener("click", (e) => {
     } else if(e.target.dataset.remove) {
         removeItem(e.target.dataset.remove)
     } else if(e.target.id === "order-btn") {
-        processOrder()
+        paymentModal.style.display = "block"
     }
+})
+
+paymentForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const paymentFormData = new FormData(paymentForm)
+    const fullName = paymentFormData.get('full-name')
+
+    paymentModal.style.display = 'none'
+    cart.style.display = 'none'
+    message.innerHTML = `<p class="bold-text">Thanks, ${fullName}! Your order is on its way!</p>`
+    message.style.display = 'block'
 })
 
 function renderMenu() {
@@ -80,9 +93,6 @@ function removeItem(itemId) {
     }
 }
 
-function processOrder() {
-    paymentModal.style.display = "block"
-}
 
 
 
