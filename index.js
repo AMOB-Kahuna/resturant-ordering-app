@@ -4,12 +4,17 @@ const menuContianer = document.querySelector("#menus-container")
 const cartItems = document.querySelector("#cart-items")
 const totalPrice = document.querySelector("#total-price")
 const cart = document.querySelector("#cart")
+const orderBtn = document.querySelector("#order-btn")
 
 let totalCartPrice = 0
 
 document.addEventListener("click", (e) => {
     if(e.target.dataset.add) {
         addToCart(parseInt(e.target.dataset.add))
+    } else if(e.target.dataset.remove) {
+        removeItem(e.target.dataset.remove)
+    } else if(e.target.id === "order-btn") {
+        processOrder()
     }
 })
 
@@ -26,7 +31,7 @@ function renderMenu() {
                     <p class="price-text">$${price}</p>
                 </div>
             </div>
-            <button class="add-to-cart-btn" id="add-btn" data-add="${item.id}">+</button>
+            <button class="add-to-cart-btn" id="add-btn" data-add="${id}">+</button>
         </section>`
     })
 
@@ -36,12 +41,12 @@ function renderMenu() {
 function addToCart(menuId) {
     cart.style.display = "block"
     const targetItem = menuArray.filter( item => item.id === menuId)
-    const {name, price} = targetItem[0]
+    const {name, price, id} = targetItem[0]
     cartItems.innerHTML += `
         <div class="cart-item outer">
             <div class="inner">
                 <p class="bold-text">${name}</p>
-                <button class="remove-btn" id="remove-btn">remove</button>
+                <button class="remove-btn" id="remove-btn" data-remove="${id}">remove</button>
             </div>
             <p class="price-text">$${price}</p>
         </div>
@@ -55,6 +60,23 @@ function displayTotalPrice(price) {
         <p class="bold-text">Total price:</p>
         <p class="price-text">$${price}</p>
     `
+}
+
+function removeItem(itemId) {
+    const itemToRemove = document.querySelector(`[data-remove="${itemId}"]`).closest(".cart-item");
+    const itemPrice = parseFloat(itemToRemove.querySelector(".price-text").textContent.replace("$", ""));
+    
+    // Remove the item from the DOM
+    itemToRemove.remove();
+    
+    // Update the total cart price
+    totalCartPrice -= itemPrice;
+    displayTotalPrice(totalCartPrice);
+
+    // Hide the cart if it's empty
+    if (cartItems.children.length === 0) {
+        cart.style.display = "none";
+    }
 }
 
 
