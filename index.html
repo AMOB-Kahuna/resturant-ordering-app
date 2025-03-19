@@ -47,13 +47,23 @@
             <p class="bold-text">Total price:</p>
             <p class="price-text">$14</p>
         </div>
-        <button class="order-btn">Complete order</button>
+        <button class="btn">Complete order</button>
     </section>
 
     <div class="payment-modal">
-        <fieldset>
-            <legend>Enter card details</legend>
-        </fieldset>
+        <form>
+            <legend class="bold-text">Enter card details</legend>
+            <!-- Allow only alphabets and spaces for the name -->
+            <input type="text" name="full-name" id="full-name" placeholder="Enter your name" required pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces.">
+            
+            <!-- Allow only numbers for the card number -->
+            <input type="text" name="card-number" id="card-number" placeholder="Enter card number" required pattern="\d{16}" title="Card number should be exactly 16 digits.">
+            
+            <!-- Allow only numbers for the CVV -->
+            <input type="text" name="cvv" id="cvv" placeholder="Enter CVV" required pattern="\d{3}" title="CVV should be exactly 3 digits.">
+            
+            <button class="btn" type="submit">Pay</button>
+        </form>
     </div>
 
     <script type="module" src="/index.js"></script>
