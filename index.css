@@ -117,3 +117,7 @@ section{
     border: none;
     margin-bottom: 20px;
 }
+
+button{
+    cursor: pointer;
+}
