@@ -19,35 +19,18 @@
     </header>
 
     <main id="menus-container">
-        <section class="menu-item outer">
-            <div class="inner">
-                <p class="menu-img">🍕</p>
-                <div class="menu-details" id="menu-details">
-                    <h2 class="bold-text">Pizza</h2>
-                    <p class="flavour">pepperoni, mushroom, mozarella</p>
-                    <p class="price-text">$14</p>
-                </div>
-            </div>
-            <button class="add-to-cart-btn">+</button>
-        </section>
+        <!-- MENUS ARE DISPLAYED HERE -->
     </main>
 
     <section class="cart">
         <h2 class="bold-text">Your order</h2>
-        <div class="cart-items">
-            <div class="cart-item outer">
-                <div class="inner">
-                    <p class="bold-text">Pizza</p>
-                    <button class="remove-btn">remove</button>
-                </div>
-                <p class="price-text">$14</p>
-            </div>
+        <div class="cart-items" id="cart-items">
+            <!-- CART ITEMS ARE DISPLAYED HERE --> 
         </div>
-        <div class="outer">
-            <p class="bold-text">Total price:</p>
-            <p class="price-text">$14</p>
+        <div class="outer" id="total-price">
+            <!-- TOTAL CART ITEMS PRICE -->
         </div>
-        <button class="btn">Complete order</button>
+        <button class="btn" id="order-btn">Complete order</button>
     </section>
 
     <div class="payment-modal">
@@ -62,7 +45,7 @@
             <!-- Allow only numbers for the CVV -->
             <input type="text" name="cvv" id="cvv" placeholder="Enter CVV" required pattern="\d{3}" title="CVV should be exactly 3 digits.">
             
-            <button class="btn" type="submit">Pay</button>
+            <button class="btn" type="submit" id="pay-btn">Pay</button>
         </form>
     </div>
 
