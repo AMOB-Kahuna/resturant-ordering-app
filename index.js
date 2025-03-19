@@ -3,6 +3,7 @@ import menuArray from "/data.js"
 const menuContianer = document.querySelector("#menus-container")
 const cartItems = document.querySelector("#cart-items")
 const totalPrice = document.querySelector("#total-price")
+const cart = document.querySelector("#cart")
 
 let totalCartPrice = 0
 
@@ -33,6 +34,7 @@ function renderMenu() {
 }
 
 function addToCart(menuId) {
+    cart.style.display = "block"
     const targetItem = menuArray.filter( item => item.id === menuId)
     const {name, price} = targetItem[0]
     cartItems.innerHTML += `
