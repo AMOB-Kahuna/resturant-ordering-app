@@ -4,7 +4,8 @@ const menuContianer = document.querySelector("#menus-container")
 const cartItems = document.querySelector("#cart-items")
 const totalPrice = document.querySelector("#total-price")
 const cart = document.querySelector("#cart")
-const orderBtn = document.querySelector("#order-btn")
+// const orderBtn = document.querySelector("#order-btn")
+const paymentModal = document.querySelector("#payment-modal")
 
 let totalCartPrice = 0
 
@@ -77,6 +78,10 @@ function removeItem(itemId) {
     if (cartItems.children.length === 0) {
         cart.style.display = "none";
     }
+}
+
+function processOrder() {
+    paymentModal.style.display = "block"
 }
 
 
