@@ -7,11 +7,13 @@ const cart = document.querySelector("#cart")
 const paymentModal = document.querySelector("#payment-modal")
 const paymentForm = document.querySelector("#payment-form")
 const message = document.querySelector("#message")
+const formFields = document.querySelectorAll("input")
 
 let totalCartPrice = 0
 
 document.addEventListener("click", (e) => {
     if(e.target.dataset.add) {
+        message.style.display = 'none'
         addToCart(parseInt(e.target.dataset.add))
     } else if(e.target.dataset.remove) {
         removeItem(e.target.dataset.remove)
@@ -30,6 +32,9 @@ paymentForm.addEventListener("submit", (e) => {
     cart.style.display = 'none'
     message.innerHTML = `<p class="bold-text">Thanks, ${fullName}! Your order is on its way!</p>`
     message.style.display = 'block'
+    cartItems.innerHTML = ''
+    totalCartPrice = 0
+    formFields.forEach( field => field.value = "")
 })
 
 function renderMenu() {
