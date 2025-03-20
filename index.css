@@ -48,6 +48,10 @@ section{
     border-bottom: 2px solid #ccc;
 }
 
+.menu-item:last-child{
+    margin-bottom: 30px;
+}
+
 .inner{
     display: flex;
 }
