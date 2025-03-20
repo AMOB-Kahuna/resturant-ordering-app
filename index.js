@@ -1,6 +1,6 @@
 import menuArray from "/data.js"
 
-const menuContianer = document.querySelector("#menus-container")
+const menuContainer = document.querySelector("#menus-container")
 const cartItems = document.querySelector("#cart-items")
 const totalPrice = document.querySelector("#total-price")
 const cart = document.querySelector("#cart")
@@ -49,7 +49,7 @@ function renderMenu() {
         </section>`
     })
 
-    menuContianer.innerHTML = menuContent.join("")
+    menuContainer.innerHTML = menuContent.join("")
 }
 
 function addToCart(menuId) {
